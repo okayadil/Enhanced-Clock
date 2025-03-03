@@ -22,6 +22,7 @@ window.onload = () => {
         const hours = updateClock.getHours();
         const minutes = updateClock.getMinutes();
         const seconds = updateClock.getSeconds();
+        const amPm = hours >= 12 ? "PM" : "AM";
 
     // Date 
         const options = {
@@ -31,7 +32,7 @@ window.onload = () => {
             year : "numeric",
         };    
       
-        document.getElementById("digital-clock").innerHTML = `${hours < 10 ? `0${hours % 12 || 12}` : hours % 12 || 12} : ${minutes < 10 ? `0${minutes}` : minutes} : ${seconds < 10 ? `0${seconds}` : seconds}`;
+        document.getElementById("digital-clock").innerHTML = `${hours < 10 ? `0${hours % 12 || 12}` : hours % 12 || 12} : ${minutes < 10 ? `0${minutes}` : minutes} : ${seconds < 10 ? `0${seconds}` : seconds} ${amPm}`;
         document.getElementById("date").innerHTML = updateClock.toLocaleDateString(undefined, options)
  
     }, 1000);
